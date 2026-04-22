@@ -1,0 +1,27 @@
+---
+title: "Untitled"
+format: revealjs
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+setwd("~/Downloads")
+library(readxl)
+data_sdi <- read_excel("SDI.xlsx")
+
+df <- 
+  data_sdi |> 
+  filter(region_name == 'CENTRO')
+```
+
+# #Analysis slide
+
+```{r}
+#graph dem by region over time
+df |> 
+  ggplot(aes(x = year, y = SUR_index_sub_exe, 
+             color = state_name)) +
+  geom_line() +
+  theme_classic()
+```
